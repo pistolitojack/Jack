@@ -74,6 +74,19 @@ body{
 .logo-mark{height:38px; width:auto;}
 .logo-text span{color:var(--gold);}
 
+/* PILL CTA */
+.btn-pill{
+  font-family:var(--font-accent); letter-spacing:2px; text-transform:uppercase;
+  font-size:.8rem; padding:12px 26px; border-radius:999px;
+  border:1px solid rgba(236,228,211,.35); color:var(--bone);
+  text-decoration:none; background:rgba(255,255,255,.04);
+  backdrop-filter:blur(6px); transition:all .35s ease;
+}
+.btn-pill:hover{
+  background:var(--bone); color:var(--black); border-color:var(--bone);
+  box-shadow:0 8px 24px rgba(236,228,211,.2);
+}
+
 /* HERO SHIELD */
 .hero-shield{
   height:90px; margin-bottom:18px; opacity:0; transform:translateY(-20px);
@@ -101,9 +114,29 @@ body{
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center; overflow:hidden;
   background:
-    radial-gradient(ellipse at 50% 30%, rgba(201,162,74,.10), transparent 60%),
-    radial-gradient(ellipse at 80% 90%, rgba(122,31,31,.18), transparent 50%),
-    linear-gradient(180deg, #050403 0%, #0a0908 60%, #050403 100%);
+    radial-gradient(ellipse at 50% 30%, rgba(201,162,74,.06), transparent 60%),
+    linear-gradient(180deg, #07060a 0%, #0a0908 55%, #070605 100%);
+}
+.hero-glow{
+  position:absolute; top:0; bottom:0; width:38vw;
+  background:linear-gradient(180deg, transparent, rgba(122,31,31,.35) 40%, rgba(201,162,74,.08) 75%, transparent);
+  filter:blur(50px); opacity:.7; mix-blend-mode:screen;
+  animation:pulse 8s ease-in-out infinite alternate;
+}
+.glow-left{left:-10%;}
+.glow-right{right:-10%; animation-delay:2s;}
+@keyframes pulse{
+  0%{opacity:.4; transform:scaleY(1);}
+  100%{opacity:.75; transform:scaleY(1.08);}
+}
+.hero-figure{
+  position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+  width:min(60vw, 700px); height:80%;
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(122,31,31,.35), transparent 60%),
+    linear-gradient(180deg, transparent, rgba(0,0,0,.6) 70%);
+  clip-path:polygon(35% 0%, 65% 0%, 78% 30%, 70% 100%, 30% 100%, 22% 30%);
+  opacity:.5; filter:blur(2px);
 }
 .hero::before{
   content:''; position:absolute; inset:0;
@@ -457,6 +490,7 @@ h2{
   }
   .navbar nav.open{display:flex;}
   .navbar nav a{padding:18px 6vw; border-bottom:1px solid rgba(201,162,74,.08);}
+  .btn-pill{display:none;}
   .burger{display:flex;}
   .burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
   .burger.active span:nth-child(2){opacity:0;}
