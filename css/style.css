@@ -314,6 +314,14 @@ h2{
 .product-card:hover .product-mock{
   transform:rotateY(12deg) rotateX(6deg) scale(1.05);
 }
+.product-photo{
+  width:70%; max-height:90%; object-fit:contain; position:relative; z-index:1;
+  filter:drop-shadow(0 20px 30px rgba(0,0,0,.6));
+  transition:transform .6s cubic-bezier(.22,1,.36,1);
+}
+.product-card:hover .product-photo{
+  transform:rotateY(12deg) rotateX(6deg) scale(1.06);
+}
 .product-tag{
   position:absolute; top:16px; left:16px; font-family:var(--font-accent);
   font-size:.7rem; letter-spacing:2px; text-transform:uppercase;
